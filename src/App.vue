@@ -10,6 +10,13 @@ export default {
 </script>
 <template lang="">
   <AppHeader/>
+  <main>
+    <div class="container">
+      <div class="row">
+        <AppCards/>
+      </div>
+    </div>
+  </main>
 </template>
 <style lang="scss" scoped>
 @use './styles/generals.scss';
