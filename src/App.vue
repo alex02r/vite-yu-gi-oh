@@ -29,13 +29,13 @@ export default {
   <AppHeader/>
   <main>
     <div class="container">
-      <div class="row">
+      <div class="row gy-4 my-2">
         <AppCards/>
       </div>
     </div>
   </main>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 @use './styles/generals.scss';
   
 </style>
