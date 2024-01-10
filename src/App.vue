@@ -10,19 +10,19 @@ export default {
   },
   data() {
     return {
-
+      store
     }
   },
-  mounted() {
-    this.getCard()
-  },
   methods: {
-    getCard(){
+    getCards(){
       axios.get(store.endpoint).then( response =>(
-        store.cardsList = response.data.data 
+        store.cardsList = response.data.data
       ))
     }
   },
+  created() {
+    this.getCards()
+  }
 }
 </script>
 <template lang="">
