@@ -1,6 +1,6 @@
 <script>
-import AppHeader from "./components/AppHeader.vue";
-import AppCards from "./components/AppCards.vue";
+import AppHeader from './components/AppHeader.vue';
+import AppCards from './components/AppCards.vue';
 export default {
   components:{
     AppHeader,
@@ -9,10 +9,9 @@ export default {
 }
 </script>
 <template lang="">
-  <div>
-    
-  </div>
+  <AppHeader/>
 </template>
-<style lang="">
+<style lang="scss" scoped>
+@use './styles/generals.scss';
   
 </style>
