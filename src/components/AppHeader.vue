@@ -5,7 +5,7 @@ export default {
 </script>
 <template lang="">
     <header>
-        <div class="d-flex jusify-content-center">
+        <div class="d-flex justify-content-center">
             <img src="https://www.yugioh-card.com/eu/wp-content/themes/yugioh/images/logo/Yugioh-EN-DE.svg" alt="yu-gi-oh">
         </div>
     </header>
