@@ -1,7 +1,11 @@
 <script>
+import AppNumberResult from "./AppNumberResult.vue";
 import { store } from "../store";
 import axios from "axios";
 export default {
+    components:{
+        AppNumberResult
+    },
     data() {
         return {
             store,
@@ -46,8 +50,7 @@ export default {
                 <div class="btn btn-sm btn-warning" @click="$emit('reset_select')">reset</div>
             </div>
         </div>
-        <div class="col-4">
-        </div>
+        <AppNumberResult/>
     </div>
 </template>
 <style lang="scss" scoped>
