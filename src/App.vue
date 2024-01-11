@@ -28,6 +28,14 @@ export default {
         store.cardsList = response.data.data
         store.loaded = true;
       })
+    },
+    resetSelect(){
+      store.select= '';
+      axios.get(store.endpoint).then( response =>{
+        store.luader = false;
+        store.cardsList = response.data.data
+        store.loaded = true;
+      })
     }
   },
   created() {
@@ -39,7 +47,7 @@ export default {
   <AppHeader/>
   <main v-if="store.loaded">
     <div class="container" >
-      <AppSearch @filter="getCards"/>
+      <AppSearch @filter="getCards" @reset_select="resetSelect"/>
       <div class="row gy-4 my-2">
         <AppCards/>
       </div>
