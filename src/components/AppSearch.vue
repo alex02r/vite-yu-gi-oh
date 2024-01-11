@@ -17,20 +17,17 @@ export default {
     },
     methods: {
         getTypeArray(){
-            //get all archetypes
             let types = [];
+
             axios.get(store.endpointType).then(response =>{
                 types = response.data;
-                types.forEach(element => {
-                    for (let i = 0; i < store.cardsList.length; i++) {
-                    if (element.archetype_name == store.cardsList[i].archetype) {
-                        if (!this.typeArray.includes(store.cardsList[i].archetype)) {
-                            this.typeArray.push(store.cardsList[i].archetype)
-                        }
+                for (let i = 1; i <= 6; i++) {
+                    let num = Math.floor(Math.random()* 526);
+                    console.log(this.typeArray.includes(types[num].archetype_name));
+                    if (!this.typeArray.includes(types[num].archetype_name)) {
+                        this.typeArray.push(types[num].archetype_name)
                     }
                 }
-                });
-                
             })
             
             
@@ -43,7 +40,7 @@ export default {
         <div class="col-4">
             <div class="d-flex gap-3">
                 <select class="form-select form-select-sm" v-model="store.select">
-                    <option selected>Select archetype</option>
+                    <option selected value="">Select archetype</option>
                     <option v-for="(type, index) in typeArray" :key="index" :value="type">{{ type }}</option>
                 </select>
                 <div class="btn btn-sm btn-dark" @click="$emit('filter')">Cerca</div>
