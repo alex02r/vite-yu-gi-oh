@@ -1,11 +1,6 @@
 <script>
-import AppSearch from './AppSearch.vue';
-
 import { store } from "../store";
 export default {
-    components:{
-        AppSearch
-    },
     data() {
         return {
             store
@@ -14,7 +9,6 @@ export default {
 }
 </script>
 <template lang="">
-    <AppSearch/>
     <div class="col-6 col-md-4 col-lg-3"  v-for="(card, index) in store.cardsList" :key="index">
         <div class="card">
             <img :src="card.card_images[0].image_url" class="card-img-top" :alt="card.name">

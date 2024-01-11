@@ -36,12 +36,16 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-4">
-            <select class="form-select form-select-sm" aria-label="Small select example">
-                <option selected>Select archetype</option>
-                <option v-for="(type, index) in typeArray" :key="index" :value="type">{{ type }}</option>
-            </select>
+            <div class="d-flex">
+                <select class="form-select form-select-sm" v-model="store.select">
+                    <option selected>Select archetype</option>
+                    <option v-for="(type, index) in typeArray" :key="index" :value="type">{{ type }}</option>
+                </select>
+                <div class="btn btn-sm btn-dark" @click="$emit('filter')">Cerca</div>
+                <div class="btn btn-sm btn-warning">reset</div>
+            </div>
         </div>
     </div>
 </template>

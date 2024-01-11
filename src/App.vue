@@ -1,6 +1,7 @@
 <script>
 import AppLoader from './components/AppLoader.vue';
 import AppHeader from './components/AppHeader.vue';
+import AppSearch from './components/AppSearch.vue';
 import AppCards from './components/AppCards.vue';
 import { store } from './store';
 import axios from 'axios';
@@ -8,6 +9,7 @@ export default {
   components:{
     AppHeader,
     AppLoader,
+    AppSearch,
     AppCards
   },
   data() {
@@ -17,7 +19,12 @@ export default {
   },
   methods: {
     getCards(){
-      axios.get(store.endpoint).then( response =>{
+      let url = store.endpoint;
+        if (store.select != '') {
+          url += `&archetype=${store.select}`
+        }
+      axios.get(url).then( response =>{
+        store.luader = false;
         store.cardsList = response.data.data
         store.loaded = true;
       })
@@ -32,6 +39,7 @@ export default {
   <AppHeader/>
   <main v-if="store.loaded">
     <div class="container" >
+      <AppSearch @filter="getCards"/>
       <div class="row gy-4 my-2">
         <AppCards/>
       </div>
